@@ -5,9 +5,21 @@ const getItems = (req, res) => {
 };
 
 const createItem = (req, res) => {
-    const newItem = req.body;
-    items.push(newItem);
-    res.status(201).json(newItem);
+    const { titulo } = req.body;
+
+    // validação mínima: título obrigatório
+    if (!titulo || titulo.trim() === "") {
+        return res.status(400).json({ erro: "Título é obrigatório." });
+    }
+
+    const nova = {
+        id: items.length + 1,
+        titulo: titulo.trim(),
+        concluida: false,
+    };
+
+    items.push(nova);
+    res.status(201).json(nova);
 };
 
 module.exports = {
