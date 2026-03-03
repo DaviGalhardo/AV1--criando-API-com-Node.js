@@ -1,0 +1,12 @@
+node_modules/
+npm-debug.log*
+package-lock.json
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+coverage/
+dist/
+/.parcel-cache
+.nyc_output/
